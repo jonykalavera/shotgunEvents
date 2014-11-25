@@ -895,7 +895,7 @@ class Callback(object):
                 tb = tb.tb_next
 
             msg = 'An error occured processing an event.\n\n%s\n\nLocal variables at outer most frame in plugin:\n\n%s'
-            self._logger.critical(msg, traceback.format_exc(), pprint.pformat(stack[1].f_locals))
+            self._logger.critical(msg, traceback.format_exc(), pprint.pformat(stack[-1].f_locals))
             if self._stopOnError:
                 self._active = False
 
